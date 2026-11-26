@@ -34,7 +34,7 @@ contactForm.addEventListener("submit", async function (event) {
     const name = formData.get("name").trim();
     const phone = formData.get("phone").trim();
     const email = formData.get("email").trim();
-    const address = formData.get("address").trim();
+    const address = (formData.get("address") || "").trim();
     const subject = formData.get("subject").trim();
     const message = (formData.get("message") || "").trim();
 
@@ -59,7 +59,7 @@ contactForm.addEventListener("submit", async function (event) {
     name,
     phone,
     email,
-    address,
+    address: address || "User Don't Added Address", 
     subject,
     message: message || "No additional information",
     submittedAt: serverTimestamp()
